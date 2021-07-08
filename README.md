@@ -42,3 +42,23 @@ Then in HTML
     </tbody>
   </angular-table>
 ```
+
+## What's included
+
+Within the download you'll find the following directories and files. You'll see something like this:
+
+```
+angular-table/
+└── projects/
+    ├── angular-table/
+    └── angular-table-app/
+```
+`angular-table/` - library
+
+`angular-table-app/` - demo application
+
+## Creators
+
+**Laiju Thomas**
+
+* <https://github.com/laijuthomas>
