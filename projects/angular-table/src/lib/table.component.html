@@ -42,11 +42,9 @@
   <div class="row" *ngIf="config.paging && totalResults > 0">
     <div class="col-md-12">
       <div class="pull-right">
-        <app-pagination [offset]="tableData.offset" [limit]="tableData.rows" [size]="totalResults"
-          (pageChange)="onChangeTable($event, 'paging')"></app-pagination>
-        <!-- <ngb-pagination (pageChange)="onChangeTable($event, 'paging')" [pageSize]="tableData.rows"
+        <app-pagination (pageChange)="onChangeTable($event, 'paging')" [pageSize]="tableData.rows"
           [collectionSize]="totalResults" [(page)]="tableData.page" [boundaryLinks]="true" [maxSize]="5">
-        </ngb-pagination> -->
+        </app-pagination>
       </div>
       <div class="pull-left mt-2">
         Showing {{start}} to {{(start + results.length) -1}} of {{totalResults}} entries

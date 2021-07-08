@@ -80,7 +80,7 @@ export class AngularTableComponent implements OnChanges {
     if (this.config.additionalFilters && !this.config.searchClassName ) {
       this.searchClassName = 'col-md-3';
     } else {
-      this.searchClassName = this.config.searchClassName ? this.config.searchClassName : 'col-md-4';
+      this.searchClassName = this.config.searchClassName ? this.config.searchClassName : 'col';
     }
 
     if (changes.data && changes.data.currentValue) {
