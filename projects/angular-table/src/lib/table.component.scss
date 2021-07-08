@@ -1,0 +1,10 @@
+
+.col-show-row {
+  padding-right: 15px;
+  width: 100%;
+  @media (min-width: 768px) {
+    flex: 0 0 13%;
+    max-width: 13%;
+  }
+}
+

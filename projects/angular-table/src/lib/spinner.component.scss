@@ -1,0 +1,91 @@
+:host {
+  background-color: rgba(255, 255, 255, 0.83);
+  opacity: 1;
+  position: absolute;
+  border-radius: inherit;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 998;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: visible;
+
+  .spin-circle {
+    animation: spin 0.8s infinite linear;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 0.05em;
+    width: 1em;
+    height: 1em;
+    border-left-color: #e9edf2;
+    border-top-color: #e9edf2;
+    border-bottom-color: #e9edf2;
+  }
+
+  .message {
+    margin-left: 0.5rem;
+    line-height: 1rem;
+    font-size: 1rem;
+    color: #4b4b4b;
+  }
+
+  &.active-spinner .spin-circle {
+    border-right-color: #4caf50;
+  }
+  &.disabled-spinner .spin-circle {
+    border-right-color: rgba(255, 255, 255, 0.4);
+  }
+  &.primary-spinner .spin-circle {
+    border-right-color: #4caf50;
+  }
+  &.info-spinner .spin-circle {
+    border-right-color: #63c2de;
+  }
+  &.success-spinner .spin-circle {
+    border-right-color: #4dbd74;
+  }
+  &.warning-spinner .spin-circle {
+    border-right-color: #ffc107;
+  }
+  &.danger-spinner .spin-circle {
+    border-right-color: #f86c6b;
+  }
+
+  &.xxsmall-spinner {
+    font-size: 1.25rem;
+  }
+  &.xsmall-spinner {
+    font-size: 1.5rem;
+  }
+  &.small-spinner {
+    font-size: 1.75rem;
+  }
+  &.medium-spinner {
+    font-size: 2rem;
+  }
+  &.large-spinner {
+    font-size: 2.25rem;
+  }
+  &.xlarge-spinner {
+    font-size: 2.5rem;
+  }
+  &.xxlarge-spinner {
+    font-size: 3rem;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    40% {
+      transform: rotate(230deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

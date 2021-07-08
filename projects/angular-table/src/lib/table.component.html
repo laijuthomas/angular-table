@@ -1,0 +1,56 @@
+<div class="row mb-2">
+  <div class="table-search-wrap {{searchClassName}}" *ngIf="config.search">
+    <input placeholder="Search" class="form-control" [formControl]="term" />
+    <i class="fa fa-search search-icon" aria-hidden="true"></i>
+  </div>
+  <div class="col additional-filters" *ngIf="config.additionalFilters">
+    <ng-content select="[additionalFilters]"></ng-content>
+  </div>
+  <div class="pl-0 text-right col-show-row" *ngIf="config.limit">
+    Show
+    <select class="form-control page-count mr-0" (change)="onChangeTable($event, 'row')">
+      <option *ngFor="let item of rows" [selected]="config.defaultRowCount === item" [value]="item">{{item}}</option>
+    </select>
+  </div>
+</div>
+<div [appSpinner]="loading">
+  <div [ngClass]="{'table-responsive': config.responsive}">
+    <table class="table mb-2" ngClass="{{config.className || ''}}">
+      <thead class="thead-default" ngClass="{{config.theadClassName || ''}}">
+        <tr>
+          <th *ngFor="let column of columns" (click)="column.sort && onChangeTable(column, 'sort')"
+            class="{{column.className ? column.className : ''}}"
+            [ngClass]="{'cursor-pointer': config.sorting && column.sort}">
+            <ng-container *ngIf="column.type && column.type === 'checkbox'">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" [checked]="allChecked" (change)="selectAll($event)"
+                  id="table-checkbox-{{id}}">
+                <label class="custom-control-label" for="table-checkbox-{{id}}">&nbsp;</label>
+              </div>
+            </ng-container>
+            <span class="table-head d-inline-block position-relative">
+              {{column.title}}
+              <i *ngIf="config.sorting && column.sort" class="fa sort-icon position-absolute "
+                [ngClass]="{'fa-sort-desc': column.sort_direction === 'desc', 'fa-sort-asc': column.sort_direction === 'asc'}"></i>
+            </span>
+          </th>
+        </tr>
+      </thead>
+      <ng-content select="[table][body]"></ng-content>
+    </table>
+  </div>
+  <div class="row" *ngIf="config.paging && totalResults > 0">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <app-pagination [offset]="tableData.offset" [limit]="tableData.rows" [size]="totalResults"
+          (pageChange)="onChangeTable($event, 'paging')"></app-pagination>
+        <!-- <ngb-pagination (pageChange)="onChangeTable($event, 'paging')" [pageSize]="tableData.rows"
+          [collectionSize]="totalResults" [(page)]="tableData.page" [boundaryLinks]="true" [maxSize]="5">
+        </ngb-pagination> -->
+      </div>
+      <div class="pull-left mt-2">
+        Showing {{start}} to {{(start + results.length) -1}} of {{totalResults}} entries
+      </div>
+    </div>
+  </div>
+</div>
