@@ -1,9 +1,8 @@
-
-import {distinctUntilChanged, debounceTime} from 'rxjs/operators';
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
-
+import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { AngularTableConfig, angularTableConfig } from './config';
 @Component({
   selector: 'angular-table',
   templateUrl: './table.component.html',
@@ -12,17 +11,8 @@ import { HttpParams } from '@angular/common/http';
 export class AngularTableComponent implements OnChanges {
   @Input() fullColumns = [];
   @Input() columns = [];
-  @Input () page: number;
-  @Input() config: any = {
-    paging: true,
-    search: true,
-    sorting: false,
-    className: ['table-hover'],
-    responsive: true,
-    limit: true,
-    additionalFilters: false,
-    defaultRowCount: '25',
-  };
+  @Input() page: number;
+  @Input() config: AngularTableConfig = angularTableConfig;
   @Input() data: any;
   @Input() totalResults: any;
   @Input() deleteRow: boolean;
@@ -68,16 +58,16 @@ export class AngularTableComponent implements OnChanges {
       debounceTime(400),
       distinctUntilChanged())
       .subscribe(
-      (data) => {
-        this.onChangeTable(data, 'search');
-      });
+        (data) => {
+          this.onChangeTable(data, 'search');
+        });
   }
 
   ngOnChanges(changes: SimpleChanges) {
 
     this.selectedColumns = Object.assign([], this.columns);
 
-    if (this.config.additionalFilters && !this.config.searchClassName ) {
+    if (this.config.additionalFilters && !this.config.searchClassName) {
       this.searchClassName = 'col-md-3';
     } else {
       this.searchClassName = this.config.searchClassName ? this.config.searchClassName : 'col';
@@ -126,7 +116,7 @@ export class AngularTableComponent implements OnChanges {
         orderingField = orderingField.replace('-', '');
         sort = 'desc';
       }
-      this.columns.forEach(function(col) {
+      this.columns.forEach(function (col) {
         if (orderingField === col.name) {
           col.sort = sort;
         }
@@ -134,7 +124,7 @@ export class AngularTableComponent implements OnChanges {
     }
   }
 
-  onChangeTable (data, type) {
+  onChangeTable(data, type) {
     this.tableData.filter_type = type;
 
     if (type === 'sort' && data && data.sort !== false) {
@@ -151,14 +141,14 @@ export class AngularTableComponent implements OnChanges {
       }
       this.tableChanged.emit(this.tableData);
       let sortParam = '';
-      this.columns.forEach(function(col) {
+      this.columns.forEach(function (col) {
         if (col.sort) {
           if (data.name === col.name) {
             if (col.sort) {
               if (col.sort_direction === 'desc') {
-                sortParam = sortParam !== '' ? sortParam + ',' + col.name  : '-' + col.name;
+                sortParam = sortParam !== '' ? sortParam + ',' + col.name : '-' + col.name;
               } else if (col.sort_direction === 'asc') {
-                sortParam = sortParam !== '' ? sortParam + ',' + col.name  : col.name;
+                sortParam = sortParam !== '' ? sortParam + ',' + col.name : col.name;
               }
             }
           } else {
@@ -181,14 +171,14 @@ export class AngularTableComponent implements OnChanges {
     } else if (type === 'row') {
       this.tableData.rows = data.target.value;
       this.tableChanged.emit(this.tableData);
-      const offsetValue =  ((this.tableData.page - 1) * parseInt(this.tableData.rows, 10));
+      const offsetValue = ((this.tableData.page - 1) * parseInt(this.tableData.rows, 10));
       this.start = offsetValue + 1;
       this.params = this.params.delete('offset');
       this.params = this.params.append('offset', offsetValue.toString());
       this.params = this.params.delete('limit');
       this.params = this.params.append('limit', this.tableData.rows);
     } else if (type === 'search') {
-      this.start =1;
+      this.start = 1;
       this.tableData.search = data;
       this.tableData.page = 1;
       if (this.params && this.params.has('offset')) {

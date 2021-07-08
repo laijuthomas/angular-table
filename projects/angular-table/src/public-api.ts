@@ -3,7 +3,11 @@
  */
 
 export * from './lib/table.component';
-export * from './lib/pagination.component';
-export * from './lib/spinner.component';
-export * from './lib/spinner.directive';
 export * from './lib/table.module';
+
+export * from './lib/pagination/pagination.module';
+
+export * from './lib/spinner/spinner.component';
+export * from './lib/spinner/spinner.directive';
+
+export { AngularTableConfig } from './lib/config';

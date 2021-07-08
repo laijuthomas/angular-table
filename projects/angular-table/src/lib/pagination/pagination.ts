@@ -10,7 +10,7 @@ import {
   SimpleChanges,
   TemplateRef
 } from '@angular/core';
-import {getValueInRange, isNumber} from './util';
+import {getValueInRange, isNumber} from '../util';
 
 
 export interface PaginationLinkContext {
