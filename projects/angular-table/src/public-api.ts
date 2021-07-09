@@ -1,5 +1,5 @@
 /*
- * Public API Surface of angular-editor
+ * Public API Surface of angular-table
  */
 
 export * from './lib/table.component';
