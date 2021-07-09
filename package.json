@@ -14,7 +14,7 @@
     "build:lib": "ng build angular-table",
     "build-prod:lib": "ng build angular-table --configuration production",
     "release": "standard-version",
-    "publish:lib": "npm run copy:readme && npm run copy:changelog && npm run copy:license && npm publish ./dist/angular-table --tag next",
+    "publish:lib": "npm run copy:readme && npm run copy:changelog && npm run copy:license && npm publish ./dist/angular-table",
     "copy:readme": "cpx README.md dist/angular-table",
     "copy:changelog": "cpx CHANGELOG.md dist/angular-table",
     "copy:license": "cpx LICENSE dist/angular-table",
