@@ -1,7 +1,7 @@
 
 
 # AngularTable
-A table component for Angular 2-12+
+A bootstrap based table component for Angular 2+
 
 ## Getting Started
 
