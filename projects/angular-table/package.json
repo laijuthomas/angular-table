@@ -4,6 +4,7 @@
   "description": "A simple table module for Angular 6+, 7+, 8+.",
   "author": "Laiju Thomas <iamlaijuthomas@gmail.com>",
   "repository": "https://github.com/laijuthomas/angular-table",
+  "homepage": "https://github.com/laijuthomas/angular-table#readme",
   "license": "MIT",
   "private": false,
   "bugs": {
