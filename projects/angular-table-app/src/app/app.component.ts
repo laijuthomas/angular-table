@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
 
+import { AngularTableConfig } from 'angular-table';;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  config: any = {
+  config: AngularTableConfig = {
     paging: true,
     search: true,
     sorting: true,
