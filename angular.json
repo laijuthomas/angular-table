@@ -33,18 +33,6 @@
             "tsConfig": "projects/angular-table/tsconfig.spec.json",
             "karmaConfig": "projects/angular-table/karma.conf.js"
           }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/angular-table/tsconfig.lib.json",
-              "projects/angular-table/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
         }
       }
     },
@@ -143,19 +131,6 @@
               "projects/angular-table-app/src/styles.css"
             ],
             "scripts": []
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/angular-table-app/tsconfig.app.json",
-              "projects/angular-table-app/tsconfig.spec.json",
-              "projects/angular-table-app/e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {
