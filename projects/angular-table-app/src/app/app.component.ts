@@ -14,17 +14,12 @@ export class AppComponent implements OnInit {
     search: true,
     sorting: true,
     responsive: true,
-    className: ['table-hover'],
+    className: ['table-hover'] ,
     limit: true,
     additionalFilters: false
   };
-  listData: { limit: number; products: any[]; skip: number; total: number } = {
-    limit: 0,
-    products: [],
-    skip: 0,
-    total: 0,
-  };
-  productsData: any = {
+
+  listData: any = {
     products: [],
     limit: 0,
     total : 0
@@ -57,26 +52,23 @@ export class AppComponent implements OnInit {
   onParamsChange(event:any) {
     this.params = event.params;
     this.start = event.start;
-    this.getSearch(this.params);
+    this.getSearch();
 
   }
 
   getData() {
     this.loading = true;
     this.http.get(this.url, { params: this.params }).subscribe((data) => {
-      this.productsData = data;
+      this.listData = data;
       this.loading = false;
     });
   }
-  getSearch(params) {
-    console.log('para',params)
-    const searchUrl = `${this.url}/search?q=${params.get('search') || ''}`;
+  getSearch() {
+    const searchUrl = `${this.url}/search?q=${this.params.get('search') || ''}`;
     this.loading = true;
-
-    this.http.get(searchUrl,  params ).subscribe((data) => {
-      this.productsData = data;
+    this.http.get(searchUrl, { params: this.params } ).subscribe((data) => {
+      this.listData = data;
       this.loading = false;
-      console.log('data', this.productsData);
     });
   }
 }

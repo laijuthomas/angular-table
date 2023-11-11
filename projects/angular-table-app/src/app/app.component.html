@@ -1,17 +1,17 @@
 <div class="container-fluid">
   <h1>Angular Table</h1>
   <p><a href="https://github.com/laijuthomas/angular-table">Get it here</a></p>
-  <angular-table [totalResults]="productsData.total" [loading]="loading" [params]="params" [columns]="columns"
-    [page]="page" [config]="config" [data]="productsData['products']" (paramsChanged)="onParamsChange($event)">
+  <angular-table [totalResults]="listData.total" [loading]="loading" [params]="params" [columns]="columns"
+    [page]="page" [config]="config" [data]="listData['products']" (paramsChanged)="onParamsChange($event)">
 
     <tbody table body>
-      <tr *ngFor="let request of productsData['products']; let i=index">
-      <td>{{request.brand}}</td>
-        <td>{{request.category}}</td>
-          <td>{{request.price}}</td>
+      <tr *ngFor="let data of listData['products']; let i=index">
+      <td>{{data.brand}}</td>
+        <td>{{data.category}}</td>
+          <td>{{data.price}}</td>
             <td><a href="#">View</a></td>
       </tr>
-      <tr *ngIf="productsData.total === 0">
+      <tr *ngIf="listData.total === 0">
         <td [attr.colspan]="columns.length">No data available in table</td>
       </tr>
     </tbody>
