@@ -9,9 +9,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
 import { SpinnerDirective } from './spinner/spinner.directive';
 
 @NgModule({
-  imports: [CommonModule, FormsModule, ReactiveFormsModule, PaginationModule],
-  exports: [AngularTableComponent, SpinnerComponent, SpinnerDirective],
-  declarations: [AngularTableComponent, SpinnerComponent, SpinnerDirective],
-  entryComponents: [],
+    imports: [CommonModule, FormsModule, ReactiveFormsModule, PaginationModule],
+    exports: [AngularTableComponent, SpinnerComponent, SpinnerDirective],
+    declarations: [AngularTableComponent, SpinnerComponent, SpinnerDirective]
 })
 export class AngularTableModule {}
