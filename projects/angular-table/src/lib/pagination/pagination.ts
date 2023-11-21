@@ -237,7 +237,7 @@ export class PaginationComponent implements OnChanges {
   @Input() size: 'sm' | 'lg';
 
   constructor() {
-    this.disabled = false
+    this.disabled = false;
     this.boundaryLinks = false;
     this.directionLinks = true;
     this.ellipses = true;
