@@ -33,6 +33,17 @@
             "tsConfig": "projects/angular-table/tsconfig.spec.json",
             "karmaConfig": "projects/angular-table/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:lint",
+          "options": {
+            "tsConfig": [
+              ".eslintrc.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
         }
       }
     },
