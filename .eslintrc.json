@@ -1,8 +1,8 @@
 {
   "root": true,
-  "ignorePatterns": [
-    "projects/**/*"
-  ],
+  // "ignorePatterns": [
+  //   "projects/**/*"
+  // ],
   "overrides": [
     {
       "files": [
@@ -19,14 +19,12 @@
         "plugin:@angular-eslint/template/process-inline-templates"
       ],
       "rules": {
+        "@angular-eslint/directive-class-suffix": "off",
+        "@angular-eslint/no-input-rename": "off",
+        "@angular-eslint/no-host-metadata-property": "off",
         "@angular-eslint/component-selector": [
           "error",
           {
-            "type": "element",
-            "prefix": [
-              "app",
-              "ngx"
-            ],
             "style": "kebab-case"
           }
         ],
