@@ -3,7 +3,7 @@
   "version": "1.0.4",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
     "build": "ng build",
     "build-prod": "ng build --configuration production",
     "test": "ng test",
