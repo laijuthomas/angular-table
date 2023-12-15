@@ -102,18 +102,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-table-app:build"
+            "buildTarget": "angular-table-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-table-app:build:production"
+              "buildTarget": "angular-table-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-table-app:build"
+            "buildTarget": "angular-table-app:build"
           }
         },
         "test": {
