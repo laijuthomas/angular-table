@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { HttpParams } from '@angular/common/http';
 import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
 import { AngularTableConfig, angularTableConfig } from './config';
@@ -29,7 +29,7 @@ export class AngularTableComponent implements OnChanges {
 
   rows = ['25', '50', '100'];
   results = [];
-  term = new FormControl();
+  term = new UntypedFormControl();
   tableData = {
     'search': '',
     'rows': '25',

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpParams } from '@angular/common/http';
+import { AngularTableConfig } from 'projects/angular-table/src/public-api';
 
-import { AngularTableConfig } from 'angular-table';;
 
 @Component({
   selector: 'app-root',
