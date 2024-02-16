@@ -1,7 +1,7 @@
 {
   "name": "@laijuthomas/angular-table",
-  "version": "1.0.4",
-  "description": "A simple table module for Angular 6+, 7+, 8+.",
+  "version": "1.1.0",
+  "description": "A simple table module for Angular 2+.",
   "author": "Laiju Thomas <iamlaijuthomas@gmail.com>",
   "repository": "https://github.com/laijuthomas/angular-table",
   "homepage": "https://github.com/laijuthomas/angular-table#readme",
@@ -11,11 +11,8 @@
     "url": "https://github.com/laijuthomas/angular-table/issues"
   },
   "peerDependencies": {
-    "@angular/common": ">=8.0.0 <13",
-    "@angular/core": ">=8.0.0 <13",
-    "@angular/forms": ">=8.0.0 <13",
-    "@angular/platform-browser": ">=8.0.0 <13",
-    "rxjs": "^6.x.x"
+    "@angular/common": "^16.2.12",
+    "@angular/core": "^16.2.12"
   },
   "dependencies": {
     "tslib": "^2.0.0"

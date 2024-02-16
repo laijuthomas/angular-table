@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
   }
 
   onParamsChange(event) {
-    console.log(event)
+    console.log(event);
   }
 
 
